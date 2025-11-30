@@ -276,8 +276,8 @@ export default function ConversasPage() {
                 </div>
               </div>
 
-              {/* Messages Area */}
-              <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin scrollbar-thumb-[#1a1a2e] scrollbar-track-transparent pb-28">
+              {/* Messages Area - Scrollable only this section */}
+              <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin scrollbar-thumb-[#1a1a2e] scrollbar-track-transparent">
                 {mockData.messages.map((msg, idx) => (
                   <div key={idx} className={`flex gap-3 ${msg.sender === 'client' ? 'justify-start' : 'justify-end'}`}>
                     {msg.sender === 'client' && (
@@ -310,59 +310,56 @@ export default function ConversasPage() {
                 ))}
               </div>
 
-              {/* Message Composer - STICKY no rodapé da coluna */}
-              <div className="sticky bottom-0 z-20 border-t border-[#1a1a2e] bg-[#0f0f1e] p-4">
-                <div className="flex items-center gap-2 mb-3">
-                  {/* Country Selector */}
-                  <div className="flex items-center bg-[#1a1a2e] rounded-lg px-3 py-2 text-sm text-gray-400 hover:text-white cursor-pointer transition-colors">
-                    <span>+55 ▼</span>
-                  </div>
-
-                  {/* Phone Number */}
-                  <input
-                    type="text"
-                    placeholder="Número..."
-                    value={selectedConv.clientPhone}
-                    className="w-32 px-3 py-2 rounded-lg bg-[#1a1a2e] border border-[#2a2a3e] text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#00FF84]"
-                  />
-
-                  {/* Conversar Button */}
-                  <button className="px-6 py-2 rounded-lg bg-[#1a1a2e] text-[#00FF84] hover:bg-[#2a2a3e] text-sm font-medium transition-all">
-                    Conversar
-                  </button>
+              {/* Contact Row - Fixed at bottom (Helena style) */}
+              <div className="border-t border-[#1a1a2e] bg-[#0f0f1e] p-4 flex items-center gap-3 flex-shrink-0">
+                {/* Country Selector */}
+                <div className="flex items-center bg-[#1a1a2e] rounded-lg px-3 py-2 text-sm text-gray-400 hover:text-white cursor-pointer transition-colors flex-shrink-0">
+                  <span>+55 ▼</span>
                 </div>
+
+                {/* Phone Number Input */}
+                <input
+                  type="text"
+                  placeholder="(00) 0000-0000"
+                  className="w-40 px-3 py-2 rounded-lg bg-[#1a1a2e] border border-[#2a2a3e] text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#00FF84] flex-shrink-0"
+                />
+
+                {/* Conversar Button */}
+                <button className="px-6 py-2 rounded-lg bg-[#1a1a2e] text-[#00FF84] hover:bg-[#2a2a3e] text-sm font-medium transition-all flex-shrink-0">
+                  Conversar
+                </button>
+
+                {/* Spacer */}
+                <div className="flex-1" />
+
+                {/* Status label */}
+                <span className="text-xs text-gray-500">Status: Online</span>
+              </div>
+
+              {/* Message Input - Fixed at very bottom (Helena style) */}
+              <div className="border-t border-[#1a1a2e] bg-[#0f0f1e] p-4 flex items-center gap-2 flex-shrink-0">
+                {/* Icon Buttons */}
+                <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-gray-400 hover:text-white flex-shrink-0" title="Anexo">
+                  <PaperclipIcon className="h-5 w-5" />
+                </button>
+                <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-gray-400 hover:text-white flex-shrink-0" title="Mídia">
+                  <Image className="h-5 w-5" />
+                </button>
+                <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-gray-400 hover:text-white flex-shrink-0" title="Emoji">
+                  <Smile className="h-5 w-5" />
+                </button>
 
                 {/* Message Input */}
-                <div className="flex items-center gap-2 bg-[#1a1a2e] rounded-2xl px-4 py-3">
-                  {/* Icon Buttons */}
-                  <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-gray-400 hover:text-white" title="Anexo">
-                    <PaperclipIcon className="h-5 w-5" />
-                  </button>
-                  <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-gray-400 hover:text-white" title="Mídia">
-                    <Image className="h-5 w-5" />
-                  </button>
-                  <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-gray-400 hover:text-white" title="Emoji">
-                    <Smile className="h-5 w-5" />
-                  </button>
-                  <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-gray-400 hover:text-white" title="Tags">
-                    <Tag className="h-5 w-5" />
-                  </button>
+                <input
+                  type="text"
+                  placeholder="Escreva a mensagem..."
+                  className="flex-1 bg-transparent text-white placeholder-gray-500 outline-none text-sm"
+                />
 
-                  {/* Message Input */}
-                  <input
-                    type="text"
-                    placeholder="Escreva a mensagem..."
-                    className="flex-1 bg-transparent text-white placeholder-gray-500 outline-none text-sm"
-                  />
-
-                  {/* Audio & Send */}
-                  <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-gray-400 hover:text-white" title="Áudio">
-                    <Volume2 className="h-5 w-5" />
-                  </button>
-                  <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-[#00FF84] hover:text-[#00FF84]/80">
-                    <Send className="h-5 w-5" />
-                  </button>
-                </div>
+                {/* Send Button */}
+                <button className="p-1.5 hover:bg-[#2a2a3e] rounded-lg transition-colors text-[#00FF84] hover:text-[#00FF84]/80 flex-shrink-0">
+                  <Send className="h-5 w-5" />
+                </button>
               </div>
             </>
           ) : (
