@@ -11,7 +11,7 @@ interface ContactActionMenuProps {
 
 export default function ContactActionMenu({ customer, onClose }: ContactActionMenuProps) {
   const { updateCustomer } = useCRM()
-  const { openSidebar } = useContactSidebar()
+  const { openContactSidebar } = useContactSidebar()
 
   const handleDelete = () => {
     if (window.confirm(`Tem certeza que deseja excluir ${customer.name}?`)) {
@@ -40,7 +40,7 @@ export default function ContactActionMenu({ customer, onClose }: ContactActionMe
 
       <button
         onClick={() => {
-          openSidebar(customer.id)
+          openContactSidebar(customer as any)
           onClose()
         }}
         className="w-full px-4 py-3 text-left hover:bg-[#1A1A1A] flex items-center gap-3 transition-colors border-b"

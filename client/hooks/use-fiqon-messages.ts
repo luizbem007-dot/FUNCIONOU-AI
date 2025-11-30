@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { FIQON_API } from "@/lib/fiqon";
+import { supabase } from '@/lib/supabase'
 
 export interface FiqonMessage {
   id: string;

@@ -7,7 +7,7 @@ import ContactActionMenu from '@/components/ContactActionMenu'
 
 export default function ContactListingTable() {
   const { filteredCustomers, sectors, users } = useCRM()
-  const { openSidebar } = useContactSidebar()
+  const { openContactSidebar } = useContactSidebar()
   const [selectedContacts, setSelectedContacts] = useState<string[]>([])
   const [expandedCustomer, setExpandedCustomer] = useState<string | null>(null)
   const [openMenuId, setOpenMenuId] = useState<string | null>(null)
@@ -178,7 +178,7 @@ export default function ContactListingTable() {
                             <ChevronDown className={cn('h-4 w-4 text-[#666] transition-transform', isExpanded && 'rotate-180')} />
                           </button>
                           <button
-                            onClick={() => openSidebar(customer.id)}
+                            onClick={() => openContactSidebar(customer as any)}
                             className="p-1.5 hover:bg-[#1A1A1A] rounded transition-colors"
                             title="Ver detalhes"
                           >

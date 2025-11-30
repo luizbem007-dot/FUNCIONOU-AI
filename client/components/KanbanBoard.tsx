@@ -101,8 +101,8 @@ export default function KanbanBoard({ showHeader = true }: KanbanBoardProps) {
     return `há ${diffDays}d`
   }
 
-  // Use mock data for display
-  const displayContacts = mockData.contacts
+  // Use mock data for display (typed as any to avoid strict mock type mismatches)
+  const displayContacts: any[] = mockData.contacts
 
   return (
     <>

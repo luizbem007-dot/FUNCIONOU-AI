@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from '@/lib/supabase'
 import { Button } from "@/components/ui/button";
 
 interface SaveContactModalProps {

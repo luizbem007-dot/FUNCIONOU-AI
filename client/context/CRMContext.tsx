@@ -40,7 +40,7 @@ export interface User {
   name: string
   email: string
   status: 'online' | 'offline' | 'away'
-  role: 'admin' | 'attendant'
+  role: 'admin' | 'attendant' | 'agent'
   avatar: string
   sector?: string
   createdAt: string
