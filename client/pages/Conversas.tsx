@@ -277,7 +277,7 @@ export default function ConversasPage() {
               </div>
 
               {/* Messages Area */}
-              <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin scrollbar-thumb-[#1a1a2e] scrollbar-track-transparent">
+              <div className="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin scrollbar-thumb-[#1a1a2e] scrollbar-track-transparent pb-28">
                 {mockData.messages.map((msg, idx) => (
                   <div key={idx} className={`flex gap-3 ${msg.sender === 'client' ? 'justify-start' : 'justify-end'}`}>
                     {msg.sender === 'client' && (
@@ -310,8 +310,8 @@ export default function ConversasPage() {
                 ))}
               </div>
 
-              {/* Message Composer - FIXO no rodapé */}
-              <div className="border-t border-[#1a1a2e] bg-[#0f0f1e] p-4 flex-shrink-0">
+              {/* Message Composer - STICKY no rodapé da coluna */}
+              <div className="sticky bottom-0 z-20 border-t border-[#1a1a2e] bg-[#0f0f1e] p-4">
                 <div className="flex items-center gap-2 mb-3">
                   {/* Country Selector */}
                   <div className="flex items-center bg-[#1a1a2e] rounded-lg px-3 py-2 text-sm text-gray-400 hover:text-white cursor-pointer transition-colors">
