@@ -40,10 +40,10 @@ export default function Admin() {
   const [editingClient, setEditingClient] = useState<Client | null>(null);
   const [editingUser, setEditingUser] = useState<User | null>(null);
   const [clientForm, setClientForm] = useState({ name: "", phone: "" });
-  const [userForm, setUserForm] = useState({
+  const [userForm, setUserForm] = useState<{ username: string; password: string; role: "admin" | "agent"; clientId: string }>({
     username: "",
     password: "",
-    role: "agent" as const,
+    role: "agent",
     clientId: "",
   });
 

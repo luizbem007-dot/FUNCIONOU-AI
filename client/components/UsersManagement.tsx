@@ -10,7 +10,7 @@ export default function UsersManagement() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    role: 'attendant' as 'admin' | 'attendant',
+    role: 'attendant' as 'admin' | 'attendant' | 'agent',
     sector: '',
     status: 'offline' as 'online' | 'offline' | 'away'
   })
